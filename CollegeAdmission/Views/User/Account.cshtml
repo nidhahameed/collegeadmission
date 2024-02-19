@@ -1,0 +1,45 @@
+﻿@model CollegeAdmission.Models.UserClass
+
+@{
+    ViewBag.Title = "Account";
+    Layout = "~/Views/Shared/UserLayout.cshtml";
+}
+
+
+
+
+<div class="profile">
+    <h2>User Profile</h2>
+    @if (Model != null)
+    {
+
+        <p><strong>Username:</strong>@Model.Username</p>
+        <p><strong>First name:</strong> @Model.FirstName</p>
+        <p><strong>Last name:</strong> @Model.LastName</p>
+        <p><strong>Date of birth:</strong> @Model.DateOfBirth</p>
+        <p><strong>Age:</strong> @Model.Age</p>
+        <p><strong>Gender:</strong> @Model.Gender</p>
+        <p><strong>Father's name:</strong> @Model.FatherName</p>
+        <p><strong>Mother's name:</strong> @Model.MotherName</p>
+        <p><strong>Phone number:</strong> @Model.PhoneNumber</p>
+        <p><strong>Email:</strong> @Model.Email</p>
+        <p><strong>Address:</strong> @Model.Address</p>
+        <p><strong>State:</strong> @Model.State</p>
+        <p><strong>District:</strong> @Model.District</p>
+        <p><strong>School:</strong> @Model.School</p>
+        <p><strong>Course:</strong> @Model.Course</p>
+        <p><strong>Department:</strong> @Model.Department</p>
+
+    }
+    else
+    {
+        <p>No profile data found.</p>
+    }
+
+    <div class="update-button">
+        <button onclick="window.location.href = '@Url.Action("Edit", "User")';">Update</button>
+    </div>
+
+</div>
+
+

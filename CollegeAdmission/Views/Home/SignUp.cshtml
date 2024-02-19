@@ -1,0 +1,259 @@
+﻿@model CollegeAdmission.Models.UserClass
+
+@{
+    ViewBag.Title = "SignUp";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<body class="register">
+    <main>
+        <div class="register-container col-8">
+
+            <form id="registrationForm" class="form" method="post">
+                @Html.AntiForgeryToken()
+                <div> <h2 style="text-align: center;">Register Here!</h2></div>
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="form-group">
+                <label for="firstName">First name:</label>
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.FirstName, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.FirstName, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="lastName">Last name:</label>                 
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.LastName, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.LastName, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="dob">Date of Birth: </label>               
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.DateOfBirth, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.DateOfBirth, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <div class="ab col-4">
+                        <label for="age">Age: </label>
+                    </div>                   
+                    <div class="col-md-10">
+                         @Html.TextBoxFor(model => model.Age, new { @readonly = "readonly", @class = "form-control" }  )
+                    </div>
+                </div>
+                    <div class="radio-group">
+                        <label for="gender">Gender: </label>
+                        <div class="gender-option">
+                            <div class="gender">
+                                <input type="radio" id="male" name="gender" value="Male">
+                                <label for="Male">Male</label>
+                            </div>
+                            <div class="gender">
+                                <input type="radio" id="female" name="gender" value="Female">
+                                <label for="Female">Female</label>
+                            </div>
+                            <div class="gender">
+                                <input type="radio" id="others" name="gender" value="Others">
+                                <label for="Others">Others</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="fatherName">Father's' name:</label>
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.FatherName, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.FatherName, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="motherName">Mother's name:</label>
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.MotherName, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.MotherName, "", new { @class = "text-danger" })
+                        </div>   
+                    </div>
+                    <div class="form-group">
+                        <label for="number">Phone number: </label>
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.PhoneNumber, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.PhoneNumber, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Email address: </label>                     
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="address">Address:</label>
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.Address, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Address, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="stateSelect">Select a State:</label>
+
+                        <div class="select-box">
+                            <select id="stateSelect" name="state" onchange="populateDistricts()">
+                                <option value="">Select a State</option>
+                                <option value="kerala">Kerala</option>
+                                <option value="tamilnadu">Tamil Nadu</option>
+                                <option value="karnataka">Karnataka</option>
+                                <option value="maharashtra">Maharashtra</option>
+                                <option value="others">Others</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="districtSelect">Select a District:</label>
+
+                        <div class="select-box">
+                            <select id="districtSelect" name="district">
+                                <option value="">Select a District</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="ab col-4">
+                            <label for="schoolName">School:</label>
+                        </div>
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.School, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.School, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="marks">Percentage marks:</label>
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.Marks, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.Marks, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="courseSelect">Select a Course:</label>
+                            <div class="select-box">
+                                <select id="courseSelect" name="course">
+                                    <option value="">Select a Course</option>
+                                    <option value="btech">B.Tech</option>
+                                    <option value="mtech">M.Tech</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="deptSelect">Select the Department:</label>
+                            <div class="select-box">
+                                <select id="deptSelect" name="department">
+                                    <option value="">Select a Department</option>
+                                    <option value="cse">CSE</option>
+                                    <option value="ece">ECE</option>
+                                    <option value="eee">EEE</option>
+                                    <option value="me">ME</option>
+                                    <option value="ce">CE</option>
+                                    <option value="it">IT</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="username">Username:</label>
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.Username, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.Username, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Password:</label>
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="confirmPassword">Confirm Password:</label>
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.ConfirmPassword, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.ConfirmPassword, "", new { @class = "text-danger" })
+                            </div>
+                            @*<div class="form-group">
+                                <label for="file">Upload Image:</label>
+                                <input type="file" name="file" id="file" style="width: 100%;" />                             
+                            </div>*@
+                        </div>
+                        <button type="submit">Register</button>
+                        <button onclick="window.location.href = '@Url.Action("SignIn", "Home")';">Go to login</button>
+        </form>
+            @Html.ViewData["Message"]
+        </div>
+        @section Scripts {
+            @Scripts.Render("~/bundles/jqueryval")
+        }
+        <script>
+            // Get references to the DOB and age input fields
+            const dobInput = document.getElementById("DateOfBirth");
+            const ageInput = document.getElementById("Age");
+            // Attach an input event listener to the DOB input field to trigger the age calculation
+            dobInput.addEventListener("input", calculateAge);
+
+            function calculateAge() {
+                // Get the value of the DOB input field
+                const dobValue = dobInput.value;
+
+                if (dobValue) {
+                    // Convert the DOB to a Date object
+                    const dobDate = new Date(dobValue);
+                    // Get the current date
+                    const currentDate = new Date();
+
+                    // Calculate the difference in milliseconds
+                    const ageInMilliseconds = currentDate - dobDate;
+
+                    // Convert milliseconds to years
+                    const ageInYears = ageInMilliseconds / (365 * 24 * 60 * 60 * 1000);
+
+                    // Display the age in the age input field
+                    ageInput.value = Math.floor(ageInYears);
+                }
+                else {
+                    // Clear the age input field if DOB is empty
+                    ageInput.value = "";
+                }
+            }
+        </script>
+        <script>
+            function populateDistricts() {
+                // Get references to the state and district select elements
+                const stateSelect = document.getElementById("stateSelect");
+                const districtSelect = document.getElementById("districtSelect");
+
+                // Clear the current options in the districts select
+                districtSelect.innerHTML = '<option value="">Select a District</option>';
+
+                // Define a mapping of states to districts (you can replace this with your data)
+                const stateDistricts = {
+                    kerala: ["Trivandrum", "Ernakulam", "Kollam", "Pathanamthitta", "Alappuzha", "Kottayam", "Idukki", "Thrissur", "Palakkad",
+                        "Malappuram", "Wayanad", "Kozhikode", "Kannur", "Kasargod"],
+                    tamilnadu: ["Chennai", "Coimbatore", "Dharmapuri", , "Erode", "Madurai", "Salem", "Nagercoil", "Theni", "Vellore", "Others"],
+                    karnataka: ["Bengaluru", "Udupi", "Kodagu", "Mandya", "Chikkamagaluru", "Mysuru", "Ramanagara", "Others"],
+                    maharashtra: ["Nashik", "Pune", "Nagpur", "Mumbai", "Ahmednagar", "Kolhapur", "Aurangabad", "Others"],
+                    others: ["Others"]
+                    // Add more districts for each state as needed
+                };
+                // Get the selected state value
+                const selectedState = stateSelect.value;
+                // If a state is selected, populate the districts
+                if (selectedState && stateDistricts[selectedState]) {
+                    stateDistricts[selectedState].forEach(district => {
+                        const option = document.createElement("option");
+                        option.value = district;
+                        option.textContent = district;
+                        districtSelect.appendChild(option);
+                    });
+                }
+            }
+        </script>
+    </main>
+</body>

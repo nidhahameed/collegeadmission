@@ -1,0 +1,344 @@
+﻿/*navbar*/
+
+* {
+    padding: 0;
+    margin: 0;
+    text-decoration: none;
+    list-style: none;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: montserrat;
+    padding: 0;
+    margin: 0;
+    min-height: 100vh;
+    background-color: floralwhite;
+    display: flex;
+    flex-direction: column;
+}
+
+nav {
+    background: #5F9EA0;
+    height: 150px;
+    width: 70%;
+    position: fixed;
+    padding: 0;
+    margin: 0;
+}
+
+.container img {
+    width: 100%;
+}
+
+.logo {
+    color: #F5F5F5;
+    font-size: 35px;
+    line-height: 80px;
+    padding: 0 100px;
+    font-weight: bold;
+    text-align: left;
+    display: block;
+}
+
+ul {
+    float: right;
+    margin-right: 20px;
+    overflow: hidden;
+    font-size: 18px;
+}
+
+li {
+    display: inline-block;
+    line-height: 50px;
+    margin: 0 5px;
+    padding: 20px;
+}
+
+    li a {
+        color: black;
+        font-size: 17px;
+        padding: 7px 13px;
+        border-radius: 3px;
+    }
+
+a.active, a:hover {
+    background: #989898;
+    transition: .5s;
+}
+
+
+
+img {
+    width:100%;
+}
+
+
+
+/*footer*/
+
+.footer-container {
+    background-color: #1f2836;
+    padding: 70px 0px;
+    width: 100%;
+    float: left;
+    display: flex;
+}
+
+.footer-sect {
+    width: 33%;
+    float: left;
+}
+
+    .footer-sect h2 {
+        color: #fff;
+        margin-bottom: 20px;
+        font-size: 18px;
+    }
+
+    .footer-sect p {
+        color: #fff;
+        line-height: 22px;
+        padding: 0px 30px 20px 0px;
+        font-size: 16px;
+    }
+
+    .footer-sect img {
+        display: block;
+        width: 12%;
+    }
+
+
+
+.footer-contact li {
+    margin-bottom: 15px;
+    list-style: none;
+    color: #fff;
+    display: flex;
+}
+
+/*Edit*/
+
+.register body {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background: white;
+    position: relative;
+    top: 50%;
+    left: 50%;
+    text-align: center;
+}
+
+.register-container {
+    position: relative;
+    max-width: 700px;
+    width: 100%;
+    margin-left: 25%;
+    margin-right: 25%;
+    background-color: #A9A9A9;
+    padding: 10px 50px 50px 4px;
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    display: flex;
+}
+
+    .register-container h2 {
+        margin-bottom: 30px;
+        font-weight: bold;
+        font-family: 'Times New Roman', Times, serif;
+        font-size: 30px;
+        color: #101010;
+        text-align: center;
+        justify-content: center;
+    }
+
+    .register-container .form {
+        margin-top: 30px;
+        display: inline-block;
+        margin-left: 25%;
+        margin-right: 25%;
+    }
+
+.form .form-group {
+    width: 100%;
+    /*margin-top: 20px;*/
+}
+
+.form-group .error_msg {
+    color:red;
+}
+
+.form-group label {
+    color: #333;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.form :where(.form-group input, .select-box) {
+    position: relative;
+    height: 50px;
+    /*width: 100%;*/
+    outline: none;
+    font-size: 1rem;
+    color: #707070;
+    margin-top: 8px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    padding: 0 15px;
+}
+
+.form-group input:focus {
+    box-shadow: 0 1px 0 rgba(0, 0, 0, 0.1);
+}
+
+.form .column {
+    display: flex;
+    column-gap: 15px;
+}
+
+.form .radio-group {
+    margin-top: 20px;
+}
+
+.radio-group label {
+    color: #333;
+    font-size: 16px;
+    margin-bottom: 8px;
+    font-weight:bold;
+}
+
+.form :where(.gender-option, .gender) {
+    display: flex;
+    align-items: center;
+    column-gap: 50px;
+    flex-wrap: wrap;
+}
+
+.form .gender {
+    column-gap: 5px;
+}
+
+.gender input {
+    accent-color: rgb(130, 106, 251);
+}
+
+.form :where(.gender input, .gender label) {
+    cursor: pointer;
+}
+
+.gender label {
+    color: #333;
+    font-size: 14px;
+    font-weight:bold;
+}
+
+.form-group :where(input, .select-box) {
+    margin-top: 15px;
+    border: none;
+}
+
+.select-box select {
+    height: 100%;
+    width: 265px;
+    outline: none;
+    border: none;
+    color: #707070;
+    font-size: 14px;
+    border-radius:6px;
+}
+
+.form button {
+    height: 55px;
+    width: 100%;
+    color: #fff;
+    font-size: 1rem;
+    font-weight: 400;
+    margin-top: 30px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    background: #303030;
+    border-radius: 6px;
+}
+
+    .form button:hover {
+        background: #383838;
+    }
+
+
+/*status*/
+
+.congrats {
+    font-size: 25px;
+    color: #228B22;
+    font-weight: bold;
+}
+
+.sorry {
+    font-size: 25px;
+    color: #D22B2B;
+    font-weight: bold;
+}
+
+.pending {
+    font-size: 25px;
+    color: #D22B2B;
+    font-weight: bold;
+}
+
+/*user profile*/
+
+.profile {
+    border-radius:6px;
+    margin: auto;
+    width: 50%;
+    padding: 10px;
+    background-color: #A9A9A9;
+    align-items:center;
+    display:block;
+    justify-content:center;
+    
+}
+
+    .profile p {
+        color: black;
+        font-size: 16px;
+        margin: 10px 25% 0 ;
+    }
+
+    .profile h2 {
+        margin-bottom: 30px;
+        font-weight: bold;
+        font-family: 'Times New Roman', Times, serif;
+        font-size: 30px;
+        color: #101010;
+        text-align: center;
+        justify-content: center;
+    }
+
+.profile .update-button {
+    
+    text-align:center;
+}
+
+.profile button {
+    height: 50px;
+    width: 40%;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 400;
+    margin-top: 30px;
+    border: none;
+    cursor: pointer;
+    
+    background: #303030;
+    border-radius: 6px;
+}
+
+.profile button:hover {
+    background: #383838;
+}
+

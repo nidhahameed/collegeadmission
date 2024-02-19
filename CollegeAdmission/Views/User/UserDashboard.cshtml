@@ -1,0 +1,18 @@
+﻿
+@{
+    ViewBag.Title = "UserDashboard";
+    Layout = "~/Views/Shared/UserLayout.cshtml";
+}
+
+<body class="user-dash">
+    <main>
+        @if (Session["Username"] != null)
+        {
+            <h2>Welcome @Session["Username"].ToString()</h2>
+        }
+
+        
+        <img class="userdash" src="~/Content/Images/user-dash..jpg" />
+        
+    </main>
+</body>

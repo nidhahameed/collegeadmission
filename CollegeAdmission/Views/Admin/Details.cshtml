@@ -1,0 +1,89 @@
+﻿@model CollegeAdmission.Models.UserProfile
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js" type="text/javascript"></script>
+
+<body>
+    <div class="profile">
+        <h2>Details</h2>
+
+        @if (Model != null)
+        {
+            <p><strong>Username:</strong>@Model.Username</p>
+            <p><strong>First name:</strong> @Model.FirstName</p>
+            <p><strong>Last name:</strong> @Model.LastName</p>
+            <p><strong>Date of birth:</strong> @Model.DateOfBirth</p>
+            <p><strong>Age:</strong> @Model.Age</p>
+            <p><strong>Gender:</strong> @Model.Gender</p>
+            <p><strong>Father's name:</strong> @Model.FatherName</p>
+            <p><strong>Mother's name:</strong> @Model.MotherName</p>
+            <p><strong>Phone number:</strong> @Model.PhoneNumber</p>
+            <p><strong>Email:</strong> @Model.Email</p>
+            <p><strong>Address:</strong> @Model.Address</p>
+            <p><strong>State:</strong> @Model.State</p>
+            <p><strong>District:</strong> @Model.District</p>
+            <p><strong>School:</strong> @Model.School</p>
+            <p><strong>Marks:</strong> @Model.Marks</p>
+            <p><strong>Course:</strong> @Model.Course</p>
+            <p><strong>Department:</strong> @Model.Department</p>
+            <p><strong>Status:</strong> @Model.Status</p>
+        }
+        else
+        {
+            <p>No profile data found.</p>
+        }
+
+
+        <p style="color:Blue;font-family:Arial">
+            @Html.ActionLink("Back to List", "AdminDashboard")
+        </p>
+
+
+        <div class="accept-reject">
+            <button id="accept" type="submit" onclick="onAccept('@Model.Username')">Accept</button>
+        </div>
+
+        <div class="accept-reject">
+            <button id="reject" type="submit" onclick="onReject('@Model.Username')">Reject</button>
+        </div>
+    </div>
+
+
+    <script>
+        function onAccept(user) {
+                    $.ajax({
+         url: '@Url.Action("Accept","Admin")',
+         type: "POST",
+         data: { id: user },
+         success: function (data) {
+             if (data.success) {
+                 alert("Status updated successfully.");
+             } else {
+                 alert("Status update failed.");
+             }
+         }
+         });
+         };
+    </script>
+
+    <script>
+function onReject(user) {
+            $.ajax({
+ url: '@Url.Action("Reject","Admin")',
+ type: "POST",
+                data: { id: user },
+ success: function (data) {
+     if (data.success) {
+         alert("Status updated successfully.");
+     } else {
+         alert("Status update failed.");
+     }
+ }
+});
+        };
+    </script>
+</body>

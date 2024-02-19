@@ -1,0 +1,35 @@
+﻿@model CollegeAdmission.Models.UserClass
+@{
+    ViewBag.Title = "Status";
+    Layout = "~/Views/Shared/UserLayout.cshtml";
+}
+
+<body>
+    @if (Model.Status == "Approved")
+    {
+        <div class="congrats">
+            @ViewData["MessageApprove"]
+        </div>
+        <img src="@ViewBag.ImageData">
+
+    }
+
+    @if (Model.Status == "Rejected")
+    {
+        <div class="sorry">
+            @ViewData["MessageReject"]
+        </div>
+        <img src="@ViewBag.ImageDataReject">
+    }
+
+    @if (Model.Status == "Pending")
+    {
+        <div class="pending">
+            @ViewData["MessagePending"]
+        </div>
+        <img src="@ViewBag.ImageDataPending">
+    }
+
+
+</body>
+

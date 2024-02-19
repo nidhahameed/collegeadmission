@@ -1,0 +1,79 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - GEC PALAKKAD</title>
+    @Styles.Render("~/Content/css")
+    @Styles.Render("~/Content/MyCss/home.css")
+    @Scripts.Render("~/bundles/modernizr")
+   
+   
+</head>
+<body>
+    <div class="">
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-dark col-12">
+
+            <div class="container">
+                <img src="~/Content/Images/logo gec.jpg" />
+            </div>
+            <label class="logo col-8">Government Engineering College, Palakkad</label>
+
+            
+            <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" title="Toggle navigation" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse d-sm-inline-flex justify-content-between">
+                <ul class="navbar-nav flex-grow-1">
+                    <li>@Html.ActionLink("Home", "Index", "Home", new { area = "" }, new { @class = "nav-link" })</li>
+                    <li>@Html.ActionLink("About", "About", "Home", new { area = "" }, new { @class = "nav-link" })</li>
+                    <li>@Html.ActionLink("Login", "SignIn", "Home", new { area = "" }, new { @class = "nav-link" })</li>
+                    <li>@Html.ActionLink("Register", "SignUp", "Home", new { area = "" }, new { @class = "nav-link" })</li>
+                    <li>@Html.ActionLink("Contact", "Contact", "Home", new { area = "" }, new { @class = "nav-link" })</li>
+                </ul>
+            </div>
+
+
+        </nav>
+    </div>
+
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+    </div>
+
+    <div class="footer">
+        <footer>           
+            <div class="footer-container">
+                <div class="footer-sect col-8" style="text-align: center;">
+                    <h2>Best Institute For Education</h2>                   
+                    <div class="row" style="padding-left: 176px;">
+                        <img src="~/Content/Images/fb.png">
+                        <img src="~/Content/Images/linkedin.png">
+                        <img src="~/Content/Images/twitter.png">
+                        <img src="~/Content/Images/insta.png">
+                    </div>
+                </div>
+                <div class="footer-sect col-8">
+                    <p style="text-align: center;font-size: 20px;">&copy; @DateTime.Now.Year - GEC PALAKKAD</p>
+                </div>
+                <div class="footer-sect col-4">
+                    <h2 style="padding-left: 261px;">Contact Info</h2>
+                    <ul class="footer-contact">
+                        <li><b>Email :</b> gecp@example.com </li>
+                        <li><b>Call :</b> +91 9846601059 </li>
+                        <li><b>Website :</b> https://gecskp.ac.in </li>
+                    </ul>
+                </div>
+            </div>
+         </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

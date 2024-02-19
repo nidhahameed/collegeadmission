@@ -1,0 +1,73 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+
+    <meta name="viewport" content="width=device-width" />
+    <title>AdminLayout</title>
+
+    @Styles.Render("~/Content/css")
+    @Styles.Render("~/Content/MyCss/admin.css")
+    @Scripts.Render("~/bundles/modernizr")
+
+</head>
+<body>
+    <div>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-dark col-12">
+            <div class="container">
+                <img src="~/Content/Images/logo gec.jpg" />
+            </div>
+            <label class="logo col-8">Government Engineering College, Palakkad</label>
+            
+            <div class="collapse navbar-collapse d-sm-inline-flex justify-content-between">
+                <ul class="navbar-nav flex-grow-1">
+                    <li>@Html.ActionLink("Home", "Index", "Home", new { area = "" }, new { @class = "nav-link" })</li>                 
+                    <li>@Html.ActionLink("Logout", "Index", "Home", new { area = "" }, new { @class = "nav-link" })</li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+    </div>
+
+    <div class="footer">
+        <footer>
+            <div class="footer-container">
+                <div class="footer-sect col-8" style="text-align: center;">
+                    <h2>Best Institute For Education</h2>
+                    <div class="row" style="padding-left: 176px;">
+                        <img src="~/Content/Images/fb.png">
+                        <img src="~/Content/Images/linkedin.png">
+                        <img src="~/Content/Images/twitter.png">
+                        <img src="~/Content/Images/insta.png">
+                    </div>
+                </div>
+                <div class="footer-sect col-8">
+                    <p style="text-align: center;font-size: 20px;">&copy; @DateTime.Now.Year - GEC PALAKKAD</p>
+                </div>
+                <div class="footer-sect col-4">
+                    <h2 style="padding-left: 261px;">Contact Info</h2>
+                    <ul class="footer-contact">
+                        <li><b>Email :</b> gecp@example.com </li>
+                        <li><b>Call :</b> +91 9846601059 </li>
+                        <li><b>Website :</b> https://gecskp.ac.in </li>
+                    </ul>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+
+</body>
+</html>

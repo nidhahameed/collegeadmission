@@ -1,0 +1,98 @@
+﻿@model IEnumerable<CollegeAdmission.Models.UserClass>
+
+@{
+    ViewBag.Title = "SignIn";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+
+}
+
+
+<body class="login">
+    <main>
+        <form class="login-container col-4" method="post">
+            <h2>Login</h2>
+            <div class="input-container">
+                <div>
+                    <label for="username">Username</label>
+                </div>
+                <input type="text" placeholder="Username" id="username" name="username">
+            </div>
+            <div id="username-err" class="error_msg"></div>
+            <div class="input-container">
+                <div>
+                    <label for="password">Password</label>
+                </div>
+                <input type="password" placeholder="Password" id="password" name="password">
+            </div>
+            <div id="password-err" class="error_msg"></div>
+            <div class="forgot-password">
+                @Html.ActionLink("Forgot Password?", "ResetPassword", "Home", null, null);
+            </div>
+            <button class="login-button" type="submit">Login</button>
+            <div class="register-link">
+                New admission? @Html.ActionLink("Register", "SignUp", "Home", null, null);
+            </div>
+
+            <h4>@Html.ViewData["MessageLogin"]</h4>
+
+        </form>
+
+        <script>
+            // Username Address Validation
+            var Username = document.getElementById("username");;
+            var UsernameValidation = function () {
+
+                UsernameValue = Username.value.trim();
+                validUsername = /^\w+([\.-]?\w+)*@@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+                UsernameErr = document.getElementById('username-err');
+
+                if (UsernameValue == "") {
+                    UsernameErr.innerHTML = "Username is required";
+
+                } else if (!validUsername.test(UsernameValue)) {
+                    UsernameErr.innerHTML = "Username must be in valid format with @@ symbol";
+                } else {
+                    UsernameErr.innerHTML = "";
+                    return true;
+                }
+
+            }
+
+            Username.oninput = function () {
+
+                UsernameValidation();
+            }
+
+            // Password Validation
+        var password= document.getElementById("password");;
+
+        var passwordValidation = function(){
+
+        passwordValue=password.value.trim();
+        validPassword=/^(?=.*[a-z])(?=.*\d)(?=.*[@@$!%*?&])[a-z\d@@$!%*?&]{8,}$/
+
+        passwordErr=document.getElementById('password-err');
+
+        if(passwordValue=="")
+        {
+            passwordErr.innerHTML="Password is required";
+        }else if(!validPassword.test(passwordValue)){
+            passwordErr.innerHTML="Password must have digit and  special characters";
+        }
+        else{
+            passwordErr.innerHTML="";
+            return true;
+        }
+        }
+
+        password.oninput=function(){
+
+        passwordValidation();
+
+        
+
+        }
+        </script>
+    </main>
+</body>

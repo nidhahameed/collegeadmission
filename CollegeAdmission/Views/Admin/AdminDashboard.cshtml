@@ -1,0 +1,73 @@
+﻿@model IEnumerable <CollegeAdmission.Models.UserProfile>
+
+@{
+    ViewBag.Title = "AdminDashboard";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+
+<body>
+    <main>
+        @if (Session["Username"] != null)
+        {
+            <h2>Welcome @Session["Username"].ToString()</h2>
+        }     
+
+        <form>
+            <table class="admindash">
+                <thead>
+                    <tr>
+                        <th>User ID</th>
+                        <th>Username</th>
+                        <th>First name</th>
+                        <th>Last name</th>
+                        <th>Age</th>
+                        <th>Gender</th>
+                        <th>Email</th>
+                        <th>Phone number</th>
+                        <th>Marks</th>
+                        <th>Course</th>
+                        <th>Department</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @if (Model!=null)
+            {
+                foreach (var item in ViewBag.model)
+                {
+                    <tr>
+                        <td>@item.UserID</td>
+                        <td>@item.Username</td>
+                        <td>@item.FirstName</td>
+                        <td>@item.LastName</td>
+                        <td>@item.Age</td>
+                        <td>@item.Gender</td>
+                        <td>@item.Email</td>
+                        <td>@item.PhoneNumber</td>
+                        <td>@item.Marks</td>
+                        <td>@item.Course</td>
+                        <td>@item.Department</td>
+                        <td>@item.Status</td>
+                        <td>@Html.ActionLink("View more", "Details", new { id = item.UserID }) </td>
+                    </tr>
+                }
+            }
+else
+            {
+                <tr>
+                    <td>
+                        <div>
+                            No users!
+                        </div>
+                    </td>
+                </tr>
+            }
+                </tbody>
+            </table>
+        </form>
+
+
+    </main>
+</body>
+
